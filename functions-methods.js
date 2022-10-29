@@ -43,6 +43,9 @@ function typeOfEmail(emailAdress) {
     return typeOfPerson;
 }
 
+
+
+
 console.log("Answer for email \"n.eeken@novi-education.nl\" is: " + typeOfEmail("n.eeken@novi-education.nl"));
 console.log("Answer for email \"t.mellink@novi.nl\" is: " + typeOfEmail("t.mellink@novi.nl"));
 console.log("Answer for email \"a.wiersma@outlook.com\" is: " + typeOfEmail("a.wiersma@outlook.com"));
@@ -63,15 +66,23 @@ console.log("Answer for email \"a.wiersma@outlook.com\" is: " + typeOfEmail("a.w
 
 console.log("\nOpdracht 3:");
 
+// function checkEmailValidity(emailAdress) {
+//     const lengthEmailAdress = emailAdress.length;
+//     if ((emailAdress.includes("@")) &&
+//         !(emailAdress.includes(",")) &&
+//         !(emailAdress[lengthEmailAdress - 1] === ".")) {
+//         return true
+//     } else {
+//         return false;
+//     }
+// }
+
+//nav feedback nu simpeler
 function checkEmailValidity(emailAdress) {
     const lengthEmailAdress = emailAdress.length;
-    if ((emailAdress.includes("@")) &&
+    return ((emailAdress.includes("@")) &&
         !(emailAdress.includes(",")) &&
-        !(emailAdress[lengthEmailAdress - 1] === ".")) {
-        return true
-    } else {
-        return false;
-    }
+        !(emailAdress[lengthEmailAdress - 1] === "."))
 }
 
 console.log(checkEmailValidity("n.eeken@novi.nl"));

@@ -1,5 +1,3 @@
-//https://github.com/Ellen-van-Duikeren/Les7-frontend-javascript-intermediate-functions/pull/new/feature
-
 // Je gaat functies schrijven die we kunnen hergebruiken om een lijst met eindcijfers van studenten te checken. Je zult over de cijfers heen moeten itereren (hoe pak je dat aan?),
 // maar ook een manier moeten vinden om hetgeen dat je verzamelt ergens te bundelen. Op deze manier zul je ontdekken hoe je omgaat met scope. Pak vooral het hoofdstuk op EdHub over for-loops er nog eens bij!
 // Tip: je mag hier geen ingebouwde object methoden gebruiken, dus daar hoef je niet naar te kijken.
@@ -116,10 +114,14 @@ console.log(averageGrade([8, 9, 4, 6, 10]));
 // Tip: Google is your best friend!
 
 console.log("\nOpdracht 2c:")
-console.log((Math.round(averageGrade(grades) * 100) / 100));
-console.log((Math.round(averageGrade([6, 4, 5]) * 100) / 100));
-console.log((Math.round(averageGrade([8, 9, 4, 6, 10]) * 100) / 100));
+// console.log((Math.round(averageGrade(grades) * 100) / 100));
+// console.log((Math.round(averageGrade([6, 4, 5]) * 100) / 100));
+// console.log((Math.round(averageGrade([8, 9, 4, 6, 10]) * 100) / 100));
 
+//nav feedback: simpeler met toFixed
+console.log(averageGrade(grades).toFixed(2));
+console.log(averageGrade([6, 4, 5]).toFixed(2));
+console.log(averageGrade([8, 9, 4, 6, 10]).toFixed(2));
 
 /* Bonusopdracht: hoogste cijfer */
 
@@ -138,14 +140,23 @@ console.log("\nOpdracht 3a:")
 // * Op welke conditie moet ik checken? of het eerste cijfer hoger is dan het 2e en dan het 2e hoger is dan het 3e,....
 // * Hoe zorg ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan opslaan? door een var te benoemen > dit werkte niet helemaal, want ik kreeg eerst 8 terug. Ik moest de oude waarde van highest ook nog vergelijken met de nieuwe waarde van highest.
 
-let highest = 0;
-for (let i = 0; i < grades.length - 1; i++) {
-    if ((grades[i] > grades[i + 1]) && (highest < grades[i])) {
+let highest = grades[0]; // nav feedback: ik had hier highest = 0, echter als er een array omt met alleen negatieve waardes klopt het resultaat niet. Dus initieer met de 1e waarde van de array.
+//for (let i = 0; i < grades.length - 1; i++) {
+// if ((grades[i] > grades[i + 1]) && (highest < grades[i])) {
+//     highest = grades[i];
+// } else if ((grades[i + 1] > grades[i]) && (highest < grades[i + 1])) {
+//     highest = grades[i + 1];
+//}
+//}
+
+
+// nav deedback veeeeeeeeel simpeler :)
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] > highest) {
         highest = grades[i];
-    } else if ((grades[i + 1] > grades[i]) && (highest < grades[i + 1])) {
-        highest = grades[i + 1];
     }
 }
+
 console.log(highest);
 
 /* 3b: Omschrijven tot een herbruikbare functie */
